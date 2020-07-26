@@ -8,9 +8,9 @@ import Appointment from '../infra/typeorm/entities/Appointment';
 import IAppointmentsRepository from '../repositories/IAppointmentsRepository';
 
 interface IRequest {
-  provider_id: string;
-  user_id: string;
   date: Date;
+  user_id: string;
+  provider_id: string;
 }
 
 @injectable()
@@ -22,8 +22,8 @@ class CreateAppointmentService {
 
   public async execute({
     date,
-    provider_id,
     user_id,
+    provider_id,
   }: IRequest): Promise<Appointment> {
     const appointmentDate = startOfHour(date);
 
@@ -51,9 +51,9 @@ class CreateAppointmentService {
     }
 
     const appointment = await this.appointmentsRepository.create({
+      date: appointmentDate,
       provider_id,
       user_id,
-      date: appointmentDate,
     });
 
     return appointment;
