@@ -2,6 +2,7 @@ import 'reflect-metadata';
 import express, { Request, Response, NextFunction } from 'express';
 // import * as Sentry from '@sentry/node';
 import cors from 'cors';
+import { errors } from 'celebrate';
 import 'express-async-errors';
 
 import uploadConfig from '@config/upload';
@@ -25,6 +26,8 @@ app.use('/files', express.static(uploadConfig.uploadsFolder));
 app.use(routes);
 
 // app.use(Sentry.Handlers.errorHandler());
+
+app.use(errors);
 
 app.use((err: Error, request: Request, response: Response, _: NextFunction) => {
   if (err instanceof AppError) {
