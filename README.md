@@ -25,7 +25,7 @@
 
 ---
 
-## :rocket: Sobre o Projeto
+### :rocket: Sobre o Projeto
 Esse projeto é uma API no padrão RESTful que será responsável por toda regra de négócio da aplicação Web e Mobile do GoBarber. Uma aplicação feita para controle de agendamentos dos prestadores de serviço de uma barbearia, salão de beleza e outros do seguemento.
 ---
 
